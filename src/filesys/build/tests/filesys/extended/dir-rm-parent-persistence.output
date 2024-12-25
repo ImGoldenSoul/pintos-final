@@ -1,0 +1,34 @@
+qemu-system-x86_64 -device isa-debug-exit -drive file=/tmp/VRZp4ORkTX.dsk,format=raw,index=0,media=disk -drive file=tmp.dsk,format=raw,index=1,media=disk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.16.3-debian-1.16.3-2)
+Booting from Hard Disk...
+PPiiLLoo  hhddaa1
+1
+LLooaaddiinngg.........................
+Kernel command line: -q run 'tar fs.tar /' append fs.tar
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  146,022,400 loops/s.
+ide0: unexpected interrupt
+hda: 3,024 sectors (1 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 222 sectors (111 kB), Pintos OS kernel (20)
+hda2: 2,048 sectors (1 MB), Pintos scratch (22)
+hdb: 5,040 sectors (2 MB), model "QM00002", serial "QEMU HARDDISK"
+hdb1: 4,096 sectors (2 MB), Pintos file system (21)
+ide1: unexpected interrupt
+filesys: using hdb1
+scratch: using hda2
+Boot complete.
+Executing 'tar fs.tar /':
+tar: exit(0)
+Execution of 'tar fs.tar /' complete.
+Appending 'fs.tar' to ustar archive on scratch device...
+Timer: 143 ticks
+Thread: 46 idle ticks, 65 kernel ticks, 32 user ticks
+hdb1 (filesys): 1374 reads, 1728 writes
+hda2 (scratch): 0 reads, 290 writes
+Console: 880 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+Copying tests/filesys/extended/dir-rm-parent.tar out of /tmp/VRZp4ORkTX.dsk...

@@ -1,0 +1,57 @@
+Copying tests/filesys/extended/syn-rw to scratch partition...
+Copying tests/filesys/extended/tar to scratch partition...
+Copying tests/filesys/extended/child-syn-rw to scratch partition...
+qemu-system-x86_64 -device isa-debug-exit -drive file=/tmp/eduPusHPgB.dsk,format=raw,index=0,media=disk -drive file=tmp.dsk,format=raw,index=1,media=disk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.16.3-debian-1.16.3-2)
+Booting from Hard Disk...
+PPiiLLoo  hhddaa1
+1
+LLooaaddiinngg.........................
+Kernel command line: -q -f extract run syn-rw
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  250,675,200 loops/s.
+ide0: unexpected interrupt
+hda: 1,008 sectors (504 kB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 222 sectors (111 kB), Pintos OS kernel (20)
+hda2: 423 sectors (211 kB), Pintos scratch (22)
+hdb: 5,040 sectors (2 MB), model "QM00002", serial "QEMU HARDDISK"
+hdb1: 4,096 sectors (2 MB), Pintos file system (21)
+ide1: unexpected interrupt
+filesys: using hdb1
+scratch: using hda2
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'syn-rw' into the file system...
+Putting 'tar' into the file system...
+Putting 'child-syn-rw' into the file system...
+Erasing ustar archive...
+Executing 'syn-rw':
+(syn-rw) begin
+(syn-rw) create "logfile"
+(syn-rw) open "logfile"
+(syn-rw) exec child 1 of 4: "child-syn-rw 0"
+(syn-rw) exec child 2 of 4: "child-syn-rw 1"
+(syn-rw) exec child 3 of 4: "child-syn-rw 2"
+(syn-rw) exec child 4 of 4: "child-syn-rw 3"
+child-syn-rw: exit(0)
+child-syn-rw: exit(3)
+child-syn-rw: exit(2)
+child-syn-rw: exit(1)
+(syn-rw) wait for child 1 of 4 returned 0 (expected 0)
+(syn-rw) wait for child 2 of 4 returned 1 (expected 1)
+(syn-rw) wait for child 3 of 4 returned 2 (expected 2)
+(syn-rw) wait for child 4 of 4 returned 3 (expected 3)
+(syn-rw) end
+syn-rw: exit(0)
+Execution of 'syn-rw' complete.
+Timer: 234 ticks
+Thread: 50 idle ticks, 85 kernel ticks, 100 user ticks
+hdb1 (filesys): 974 reads, 2323 writes
+hda2 (scratch): 422 reads, 2 writes
+Console: 1618 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...

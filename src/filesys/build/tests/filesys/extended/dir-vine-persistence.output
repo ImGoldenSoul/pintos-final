@@ -1,0 +1,35 @@
+qemu-system-x86_64 -device isa-debug-exit -drive file=/tmp/pV7qnR0OuS.dsk,format=raw,index=0,media=disk -drive file=tmp.dsk,format=raw,index=1,media=disk -m 4 -net none -nographic -monitor null
+c[?7l[2J[0mSeaBIOS (version 1.16.3-debian-1.16.3-2)
+Booting from Hard Disk...
+PPiiLLoo  hhddaa1
+1
+LLooaaddiinngg.........................
+Kernel command line: -q run 'tar fs.tar /' append fs.tar
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  145,817,600 loops/s.
+ide0: unexpected interrupt
+hda: 3,024 sectors (1 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 222 sectors (111 kB), Pintos OS kernel (20)
+hda2: 2,048 sectors (1 MB), Pintos scratch (22)
+hdb: 5,040 sectors (2 MB), model "QM00002", serial "QEMU HARDDISK"
+hdb1: 4,096 sectors (2 MB), Pintos file system (21)
+ide1: unexpected interrupt
+filesys: using hdb1
+scratch: using hda2
+Kernel PANIC at ../../devices/block.c:111 in check_sector(): Access past end of device hdb1 (sector=808794400, size=4096)
+
+Call stack: 0xc0029a67.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Timer: 58 ticks
+Thread: 0 idle ticks, 58 kernel ticks, 0 user ticks
+hdb1 (filesys): 1 reads, 0 writes
+hda2 (scratch): 0 reads, 0 writes
+Console: 1021 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
+Copying tests/filesys/extended/dir-vine.tar out of /tmp/pV7qnR0OuS.dsk...
